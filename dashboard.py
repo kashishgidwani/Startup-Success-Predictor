@@ -25,6 +25,9 @@ def create_exploded_dataframe(df, split_column, value_columns):
     for col in value_columns:
         # Get the lengths of each split
         lengths = df_copy[split_column].str.split(',').str.len()
+        # Ensure no negative values
+        lengths = lengths.fillna(0).astype(int)
+        lengths = lengths.clip(lower=0)
         # Repeat the values according to the lengths
         repeated_values = df_copy[col].repeat(lengths).reset_index(drop=True)
         result_df[col] = repeated_values
