@@ -1,4 +1,4 @@
-# Startup Success Blueprint Dashboard
+# Startup Success Predictor Dashboard
 
 A Streamlit dashboard for analyzing startup success factors and metrics.
 
